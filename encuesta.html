@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuesta - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES PROPORCIONADOS            */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 800px; /* Ajustado para el formulario */
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      /* ========================================== */
+      /* ESTILOS DEL FORMULARIO Y BOTONES (L4D)     */
+      /* ========================================== */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #a3b899;
+        font-size: 1.05rem;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 12px;
+        background-color: #141915;
+        border: 1px solid #2e3d32;
+        color: #d1d8d2;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #8b0000;
+        box-shadow: 0 0 8px rgba(139, 0, 0, 0.6);
+      }
+
+      .rating {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        background-color: #141915;
+        padding: 15px;
+        border: 1px solid #2e3d32;
+        border-radius: 4px;
+      }
+
+      .rating label {
+        font-weight: normal;
+        color: #d1d8d2;
+        margin-bottom: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .rating input[type="radio"] {
+        accent-color: #8b0000; /* Tiñe el radio button de rojo si el navegador lo soporta */
+      }
+
+      button.l4d-btn {
+        width: 100%;
+        padding: 15px;
+        background-color: #8b0000;
+        color: #ffffff;
+        border: 2px solid #5a0000;
+        border-radius: 4px;
+        font-family: "Impact", sans-serif;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      button.l4d-btn:hover {
+        background-color: #ff3333;
+        border-color: #ff3333;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
+      }
+
+      /* ========================================== */
+      /* CONTENEDOR PARA EL GIF                     */
+      /* ========================================== */
+      .gif-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      .l4d-gif {
+        max-width: 100%; /* Se adapta si la pantalla es pequeña */
+        height: auto;
+        max-height: 250px; /* Evita que el GIF sea gigantesco */
+        border: 2px solid #2e3d32;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        background-color: #0a0c0a;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <main>
+      <div class="section-content">
+        <h2>Reporte de Superviviente</h2>
+        <form id="encuestaForm">
+          <div class="form-group">
+            <label for="nombre">Nombre de Jugador:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              placeholder="Ej. Nick, Ellis, Coach..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo de Contacto (CEDA):</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              required
+              placeholder="superviviente@refugio.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Nivel de Satisfacción con la Wiki:</label>
+            <div class="rating">
+              <label
+                ><input type="radio" name="satisfaccion" value="1" required /> 1
+                (Infectado)</label
+              >
+              <label
+                ><input type="radio" name="satisfaccion" value="2" /> 2</label
+              >
+              <label
+                ><input type="radio" name="satisfaccion" value="3" /> 3</label
+              >
+              <label
+                ><input type="radio" name="satisfaccion" value="4" /> 4</label
+              >
+              <label
+                ><input type="radio" name="satisfaccion" value="5" /> 5
+                (Inmune)</label
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="comentarios">Reporte de Situación / Sugerencias:</label>
+            <textarea
+              id="comentarios"
+              name="comentarios"
+              rows="5"
+              placeholder="Escribe aquí si avistaste un Tank, un error en la wiki, o algo útil..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="l4d-btn">Enviar Reporte</button>
+          <br />
+          <!-- === ESPACIO PARA TU GIF === -->
+          <div class="gif-container">
+            <!-- Solo cambia "nombre-de-tu-gif.gif" por el nombre real de tu archivo -->
+            <center>
+              <img src="Agif.gif" alt="GIF de Sobreviviente" class="l4d-gif" />
+            </center>
+          </div>
+          <!-- =========================== -->
+        </form>
+      </div>
+    </main>
+
+    <script>
+      document
+        .getElementById("encuestaForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const datosNuevos = {
+            nombre: document.getElementById("nombre").value,
+            correo: document.getElementById("correo").value,
+            satisfaccion: document.querySelector(
+              'input[name="satisfaccion"]:checked',
+            ).value,
+            comentarios: document.getElementById("comentarios").value,
+          };
+
+          // 1. Buscamos si ya hay una lista guardada. Si no hay, creamos una vacía ([]).
+          let listaEncuestas =
+            JSON.parse(localStorage.getItem("listaEncuestas")) || [];
+
+          // 2. Agregamos el nuevo reporte a la lista
+          listaEncuestas.push(datosNuevos);
+
+          // 3. Guardamos la lista completa actualizada
+          localStorage.setItem(
+            "listaEncuestas",
+            JSON.stringify(listaEncuestas),
+          );
+
+          // 4. Redirigimos a resultados
+          window.location.href = "resultado.html";
+        });
+    </script>
+  </body>
+</html>

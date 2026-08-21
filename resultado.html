@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES PROPORCIONADOS            */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .l4d-gif {
+        max-width: 100%; /* Se adapta si la pantalla es pequeña */
+        height: auto;
+        max-height: 250px; /* Evita que el GIF sea gigantesco */
+        border: 2px solid #2e3d32;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        background-color: #0a0c0a;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 800px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      /* ========================================== */
+      /* TABLAS (Ya incluidas en tus estilos)       */
+      /* ========================================== */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 14px 18px; /* Un poco más de espacio para que respire el texto */
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #e8e8e8; /* Un blanco ligeramente apagado para no cansar la vista */
+        /* Cambiamos Impact por Arial Black o similar para mayor limpieza */
+        font-family: "Arial Black", "Franklin Gothic Heavy", sans-serif;
+        letter-spacing: 1.5px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        width: 35%;
+        border-right: 2px solid #141915; /* Línea divisoria sutil entre columna y columna */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Sombreado oscuro para dar profundidad */
+      }
+
+      td {
+        font-size: 1.05rem;
+        color: #ffffff; /* Respuestas en blanco puro para que resalten más */
+        font-weight: 500;
+      }
+
+      /* ========================================== */
+      /* BOTONES Y EXTRAS                           */
+      /* ========================================== */
+      .buttons-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 4px;
+        font-family: "Impact", sans-serif;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .btn-back {
+        background-color: #2e3d32;
+        color: #d1d8d2;
+        border: 2px solid #1f2921;
+      }
+
+      .btn-back:hover {
+        background-color: #3a4d3e;
+        color: #ffffff;
+      }
+
+      .btn-clear {
+        background-color: #8b0000;
+        color: white;
+        border: 2px solid #5a0000;
+      }
+
+      .btn-clear:hover {
+        background-color: #ff3333;
+        border-color: #ff3333;
+        box-shadow: 0 0 10px rgba(255, 51, 51, 0.6);
+      }
+
+      .no-data {
+        text-align: center;
+        color: #a3b899;
+        font-style: italic;
+        font-size: 1.1rem;
+        padding: 20px;
+        background-color: #141915;
+        border: 1px solid #2e3d32;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <main>
+      <div class="section-content">
+        <h2>Estadísticas del Sobreviviente</h2>
+
+        <div id="resultadoContenedor"></div>
+
+        <div class="buttons-group">
+          <button
+            class="btn-back"
+            onclick="window.location.href = 'encuesta.html'"
+          >
+            Volver al Refugio
+          </button>
+          <button class="btn-clear" id="btnBorrar">Borrar Registro CEDA</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contenedor = document.getElementById("resultadoContenedor");
+        const btnBorrar = document.getElementById("btnBorrar");
+
+        // Leer la lista de encuestas (array) en lugar de un solo dato
+        const datosGuardados = localStorage.getItem("listaEncuestas");
+
+        if (datosGuardados) {
+          const encuestas = JSON.parse(datosGuardados);
+
+          // Verificamos que la lista tenga al menos 1 elemento
+          if (encuestas.length > 0) {
+            let htmlTablas = "";
+
+            // Recorremos cada encuesta guardada para crear su tabla
+            encuestas.forEach((datos, index) => {
+              htmlTablas += `
+                <h3 style="margin-top: 30px; color: #ff4d4d; border-bottom: 2px solid #8b0000; padding-bottom: 5px;">
+                  Reporte de Sobreviviente #${index + 1}
+                </h3>
+                <table style="margin-bottom: 40px;">
+                  <tbody>
+                    <tr>
+                      <th>Jugador</th>
+                      <td>${datos.nombre}</td>
+                    </tr>
+                    <tr>
+                      <th>Contacto</th>
+                      <td>${datos.correo}</td>
+                    </tr>
+                    <tr>
+                      <th>Nivel de Satisfacción</th>
+                      <td>${datos.satisfaccion} de 5</td>
+                    </tr>
+                    <tr>
+                      <th>Reporte / Comentarios</th>
+                      <td>${datos.comentarios ? datos.comentarios : "<em>Sin reporte adicional.</em>"}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              `;
+            });
+
+            // Inyectamos todas las tablas en el contenedor
+            contenedor.innerHTML = htmlTablas;
+          } else {
+            mostrarSinDatos();
+          }
+        } else {
+          mostrarSinDatos();
+        }
+
+        function mostrarSinDatos() {
+          contenedor.innerHTML = `<div class="no-data">No hay reportes registrados actualmente en la base de datos.</div>`;
+          btnBorrar.style.display = "none";
+        }
+
+        // El botón ahora borrará TODA la lista
+        btnBorrar.addEventListener("click", function () {
+          if (
+            confirm(
+              "¿Confirmas purgar TODOS los registros de la base de datos de CEDA? Esta acción no se puede deshacer.",
+            )
+          ) {
+            localStorage.removeItem("listaEncuestas");
+            mostrarSinDatos();
+            contenedor.innerHTML = `<div class="no-data">Todos los registros han sido purgados con éxito.</div>`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

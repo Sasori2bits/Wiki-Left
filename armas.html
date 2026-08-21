@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armas y Arsenal - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES                           */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      /* Menú de Navegación */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      /* Contenedor Principal */
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 1000px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      /* Tipografía */
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #ff4d4d;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      p,
+      ul {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        text-align: justify;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      /* Galería Flexbox para 2 imágenes por sección */
+      .image-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 25px 0;
+      }
+
+      .image-frame {
+        border: 3px solid #3a4d3e;
+        background-color: #151a16;
+        padding: 12px;
+        border-radius: 6px;
+        flex: 1 1 300px; /* Crece y se encoge, tamaño base 300px */
+        max-width: 45%;
+        box-shadow:
+          inset 0 0 10px rgba(0, 0, 0, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+        background-color: #0a0c0a; /* Fondo oscuro por si la imagen es PNG transparente */
+      }
+
+      .image-caption {
+        font-size: 0.9rem;
+        color: #8fa893;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* Tablas */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #ffffff;
+        font-family: "Impact", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: ARMAS -->
+    <main>
+      <div class="section-content">
+        <h1>Armas y Arsenal</h1>
+        <p>
+          Para sobrevivir a la inmensa cantidad de infectados, los
+          supervivientes cuentan con un arsenal diverso. Las armas principales
+          se dividen en niveles según su potencia y disponibilidad a lo largo de
+          los capítulos, mientras que las armas secundarias ofrecen protección
+          ilimitada o daño masivo a corta distancia.
+        </p>
+
+        <!-- ===================================== -->
+        <!-- ARMAS DE NIVEL 1 -->
+        <!-- ===================================== -->
+        <h2>Armas de Nivel 1</h2>
+        <p>
+          Son las armas iniciales que encuentras al principio de cada campaña o
+          en las primeras zonas seguras. Tienen un daño moderado, cargadores más
+          pequeños y menor precisión a largas distancias.
+        </p>
+        <ul>
+          <li>
+            <strong>Subfusil (SMG / Uzi):</strong> Alta cadencia de fuego pero
+            poca precisión a distancia. Ideal para limpiar hordas comunes de
+            cerca.
+          </li>
+          <li>
+            <strong>Subfusil con Silenciador (Mac-10):</strong> Dispara
+            ligeramente más rápido que el SMG estándar y tiene un menor
+            retroceso, siendo más letal.
+          </li>
+          <li>
+            <strong>Escopeta de Corredera (Pump Shotgun):</strong> Daño masivo a
+            corta distancia. Requiere recargar cartucho por cartucho.
+          </li>
+          <li>
+            <strong>Escopeta Cromada (Chrome Shotgun):</strong> Variante de la
+            escopeta de corredera con una dispersión de perdigones mucho más
+            estrecha, ideal para distancias medias.
+          </li>
+          <li>
+            <strong>Subfusil MP5 (Rebuscada):</strong> Arma exclusiva importada
+            de Counter-Strike. Tiene un cargador más grande pero recarga más
+            lenta.
+          </li>
+        </ul>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img
+              src="Nivel 1 escopeta de corredera.jpg"
+              alt="Escopeta de Corredera"
+            />
+            <div class="image-caption">
+              Escopeta de Corredera: Devastadora en espacios cerrados.
+            </div>
+          </div>
+          <div class="image-frame">
+            <img src="Nivel 1 smg.jpg" alt="Subfusil SMG" />
+            <div class="image-caption">
+              Subfusil (SMG): Ráfagas rápidas para control de multitudes.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Nivel 1</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Silenciador Táctico</td>
+              <td>
+                A pesar de tener silenciador, el Mac-10 sigue alertando a las
+                Witches si disparas cerca de ellas.
+              </td>
+            </tr>
+            <tr>
+              <td>Eficacia</td>
+              <td>
+                Las escopetas de Nivel 1 pueden asesinar a un infectado de un
+                solo tiro a quemarropa independientemente de la dificultad.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- ARMAS DE NIVEL 2 -->
+        <!-- ===================================== -->
+        <h2>Armas de Nivel 2</h2>
+        <p>
+          Se encuentran en las etapas intermedias y finales de las campañas. Son
+          armas de grado militar con mayor capacidad de munición, precisión
+          letal y poder de penetración capaz de atravesar múltiples infectados
+          con una sola bala.
+        </p>
+        <ul>
+          <li>
+            <strong>Rifle de Asalto (M16):</strong> Excelente precisión y
+            recarga muy rápida. Un arma equilibrada para cualquier situación.
+          </li>
+          <li>
+            <strong>Rifle de Asalto de Combate (SCAR-L):</strong> Dispara en
+            ráfagas de 3 balas. Extremadamente preciso a largas distancias.
+          </li>
+          <li>
+            <strong>Rifle AK-47:</strong> El rifle que más daño hace por bala,
+            pero con un retroceso muy alto. Útil para abatir infectados
+            especiales rápidamente.
+          </li>
+          <li>
+            <strong>Escopeta Táctica (Auto Shotgun / Benelli M4):</strong>
+            Dispara semiautomático con un área de daño letal, aniquilando
+            pasillos enteros de zombis.
+          </li>
+          <li>
+            <strong>Escopeta de Combate (SPAS-12):</strong> Variante
+            semiautomática con un patrón de disparo ligeramente más concentrado
+            que la Táctica.
+          </li>
+          <li>
+            <strong>Rifle de Caza (Hunting Rifle):</strong> Rifle de
+            francotirador semiautomático con mira telescópica y gran daño
+            perforante.
+          </li>
+          <li>
+            <strong>Rifle de Francotirador Militar (Sniper Rifle):</strong>
+            Mayor capacidad de cargador (30 balas) que el Rifle de Caza, ideal
+            para cubrir al equipo desde lejos.
+          </li>
+          <li>
+            <strong>Armas Rebuscadas (CS:Source):</strong> Rifle SG552 (con mira
+            holográfica), Rifle de Francotirador AWP (daño masivo, recarga
+            lenta) y Scout (francotirador de cerrojo muy ligero).
+          </li>
+        </ul>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Nivel 2 Rifle de asalto.jpg" alt="Rifle de Asalto M16" />
+            <div class="image-caption">
+              Rifle de Asalto (M16): Precisión y equilibrio militar.
+            </div>
+          </div>
+          <div class="image-frame">
+            <img src="Nivel 2 Escopeta automatica.jpg" alt="Escopeta Táctica" />
+            <div class="image-caption">
+              Escopeta Táctica: Destrucción semiautomática garantizada.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Nivel 2</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Balas Perforantes</td>
+              <td>
+                El Rifle de Caza y el Francotirador Militar pueden atravesar
+                paredes gruesas e impactar infectados detrás de ellas.
+              </td>
+            </tr>
+            <tr>
+              <td>AK-47 Oculto</td>
+              <td>
+                La culata de madera del AK-47 en L4D2 es diferente a la de otros
+                juegos de Valve, adaptándose a una versión de uso rudo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- ARMAS ESPECIALES -->
+        <!-- ===================================== -->
+        <h2>Armas Especiales (Nivel 3)</h2>
+        <p>
+          Armamento extremadamente poderoso y raro de encontrar. La
+          característica principal de estas armas es que
+          <strong>no se pueden reabastecer</strong> en las pilas de munición
+          estándar; una vez que se agotan, el arma debe ser desechada.
+        </p>
+        <ul>
+          <li>
+            <strong>Lanzagranadas (M79):</strong> Dispara un explosivo que
+            detona al impacto, desmembrando a decenas de zombis a la vez. (30
+            granadas en total).
+          </li>
+          <li>
+            <strong>Ametralladora Ligera (M60):</strong> Tiene 150 balas
+            continuas capaces de destrozar hordas y Tanks en segundos. Despedaza
+            a los infectados comunes con un solo roce.
+          </li>
+        </ul>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Nivel Especial lanzagranadas.jpg" alt="Lanzagranadas" />
+            <div class="image-caption">
+              Lanzagranadas: Control de masas con daño de área masivo.
+            </div>
+          </div>
+          <div class="image-frame">
+            <img
+              src="Nivel Especial ametralladora ligera.jpg"
+              alt="Ametralladora Ligera M60"
+            />
+            <div class="image-caption">
+              M60: Potencia de fuego brutal sin necesidad de recargar.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Armas Especiales</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fuego Amigo Explosivo</td>
+              <td>
+                El Lanzagranadas tiene un enorme radio de salpicadura. Usarlo
+                cerca de compañeros en dificultad Experto es letal.
+              </td>
+            </tr>
+            <tr>
+              <td>Mejoras de Munición</td>
+              <td>
+                Si cargas munición incendiaria/explosiva en la M60, conservará
+                ese efecto hasta que agotes por completo sus 150 balas.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- ARMAS SECUNDARIAS (PISTOLAS) -->
+        <!-- ===================================== -->
+        <h2>Armas Secundarias (Pistolas)</h2>
+        <p>
+          Ocupan la ranura de arma secundaria y poseen
+          <strong>munición infinita</strong>. Son vitales cuando el jugador
+          queda derribado y debe defenderse desde el suelo.
+        </p>
+        <ul>
+          <li>
+            <strong>Pistola P220 / Glock:</strong> La pistola estándar. Si
+            encuentras otra en el mapa, puedes equipar
+            <strong>Pistolas Duales</strong>, duplicando la cadencia de fuego y
+            la capacidad del cargador (30 balas).
+          </li>
+          <li>
+            <strong>Pistola Magnum (Desert Eagle):</strong> Lenta y con gran
+            retroceso, pero extremadamente poderosa. Una sola bala abate a
+            cualquier infectado común sin importar dónde impacte.
+          </li>
+        </ul>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Secundaria - pistola.jpg" alt="Pistolas Duales" />
+            <div class="image-caption">
+              Pistola Estándar: Fiable y mejorable a uso dual.
+            </div>
+          </div>
+          <div class="image-frame">
+            <img src="Nivel secundaria Magnun.jpg" alt="Pistola Magnum" />
+            <div class="image-caption">
+              Magnum: Detiene a los zombis en seco de un solo disparo.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Pistolas</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Penetración de la Magnum</td>
+              <td>
+                A diferencia de la pistola estándar, las balas de la Magnum
+                atraviesan zombis, permitiendo conseguir muertes múltiples
+                alineadas.
+              </td>
+            </tr>
+            <tr>
+              <td>Supervivencia Derribado</td>
+              <td>
+                Si portas pistolas duales, al caer derribado al suelo solo
+                usarás una pistola estándar, perdiendo la ventaja temporalmente.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- ARMAS CUERPO A CUERPO (MELEE) -->
+        <!-- ===================================== -->
+        <h2>Armas Cuerpo a Cuerpo (Melee)</h2>
+        <p>
+          Sustituyen a las pistolas secundarias. Infligen un daño masivo e
+          instantáneo a corta distancia, capaz de decapitar o cercenar
+          extremidades. Su uso no consume estamina ni requiere recarga, lo que
+          las hace invaluables en embudos o esquinas.
+        </p>
+        <ul>
+          <li>
+            <strong>Cortantes:</strong> Hacha de bomberos, Machete, Katana y
+            Motosierra (esta última consume gasolina, pero mata instantáneamente
+            todo lo que toca).
+          </li>
+          <li>
+            <strong>Contundentes:</strong> Sartén, Bate de béisbol, Bate de
+            críquet, Palanca, Guitarra eléctrica, Palo de golf y Porra policial
+            (Tonfa).
+          </li>
+          <li>
+            <strong>Rebuscadas / Actualizaciones:</strong> Cuchillo de combate
+            (versión alemana), Pala (Shovel) y Horca (Pitchfork - introducidas
+            en The Last Stand), y el Escudo Antidisturbios (arma que fue
+            eliminada en las betas pero sus archivos siguen en el juego).
+          </li>
+        </ul>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Melee - hacha.jpg" alt="Hacha de Bomberos" />
+            <div class="image-caption">
+              Hacha de Bomberos: Letal y excelente para cortar lenguas de
+              Smoker.
+            </div>
+          </div>
+          <div class="image-frame">
+            <img src="Melee - machete.jpg" alt="Machete" />
+            <div class="image-caption">
+              Machete: Ligero, rápido y extremadamente mortal.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Cuerpo a Cuerpo</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sonido Metálico</td>
+              <td>
+                Golpear zombis con la Sartén genera un sonido cómico y muy
+                característico amado por la comunidad (el famoso ¡PANG!).
+              </td>
+            </tr>
+            <tr>
+              <td>Decapitar al Charger</td>
+              <td>
+                Cualquier arma melee afilada (como el Hacha o Katana) puede
+                asesinar a un Charger de un solo golpe si el jugador acierta a
+                la cabeza (Level Charge).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

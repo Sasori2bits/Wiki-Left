@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Left 4 Dead 2 - Wiki Oficial (Introducción)</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES                           */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* Fondo general difuminado/oscurecido con una capa superpuesta */
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      /* Menú de Navegación Superior Fijo */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      /* Estructura de la Sección Principal */
+      main {
+        min-height: 100vh;
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 1000px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+      }
+
+      /* Tipografía */
+      h1,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+        color: #ff4d4d;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        color: #a8d5ba;
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+      }
+
+      /* Cuadros y Encuadre de Imágenes */
+      .image-frame {
+        border: 3px solid #3a4d3e;
+        background-color: #151a16;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 25px auto;
+        max-width: 100%;
+        box-shadow:
+          inset 0 0 10px rgba(0, 0, 0, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.6);
+        text-align: center;
+      }
+
+      .image-frame img {
+        width: 100%;
+        max-height: 420px;
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .image-caption {
+        font-size: 0.9rem;
+        color: #8fa893;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* Tablas de Curiosidades */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #ffffff;
+        font-family: "Impact", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <!-- Los enlaces ahora apuntan a archivos HTML separados -->
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: INTRODUCCIÓN -->
+    <main>
+      <div class="section-content">
+        <h1>Wiki Oficial de Left 4 Dead 2</h1>
+
+        <p>
+          Bienvenido a la enciclopedia definitiva de supervivencia del aclamado
+          juego de disparos cooperativo en primera persona desarrollado por
+          Valve. Ambientado en las sombrías secuelas de una pandemia mundial
+          desatada por el patógeno conocido como la «Gripe Verde», este mundo
+          pone a prueba los límites de la resistencia humana, el trabajo en
+          equipo y la estrategia táctica.
+        </p>
+
+        <p>
+          A través de esta página web, podrás explorar de forma detallada e
+          interconectada todo lo necesario para dominar el juego. Encontrarás un
+          análisis profundo de las <strong>campañas y mapas</strong> que
+          componen el viaje hacia el sur de los Estados Unidos, una guía
+          exhaustiva del vasto <strong>arsenal</strong> disponible (desde armas
+          de cuerpo a cuerpo letales hasta armamento militar de asalto),
+          perfiles psicológicos y tácticos de los
+          <strong>cuatro supervivientes</strong> inmunes, descripciones
+          detalladas de los temibles <strong>infectados especiales</strong>, el
+          uso táctico de los <strong>objetos arrojadizos</strong> y las
+          peculiaridades de los <strong>zombis poco comunes</strong> que poseen
+          habilidades defensivas únicas.
+        </p>
+
+        <!-- ENCUADRE DE IMAGEN -->
+        <div class="image-frame">
+          <img
+            src="introduccion-imagen.jpg"
+            alt="Invasión zombie y caos en Left 4 Dead 2"
+          />
+          <div class="image-caption">
+            Imagen introductoria: La desesperada lucha por la supervivencia
+            frente a las hordas.
+          </div>
+        </div>
+
+        <!-- TABLA DE CURIOSIDADES -->
+        <h3>Notas y Curiosidades Generales</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Detalle Técnico / Curiosidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Motor Gráfico</td>
+              <td>
+                Source Engine (actualizado con sistemas avanzados de
+                desmembramiento y fluidos).
+              </td>
+            </tr>
+            <tr>
+              <td>El Director (AI Director)</td>
+              <td>
+                Sistema dinámico que ajusta la dificultad, spawns de objetos e
+                infectados basándose en el rendimiento del equipo.
+              </td>
+            </tr>
+            <tr>
+              <td>Lanzamiento</td>
+              <td>
+                Noviembre de 2009, convirtiéndose instantáneamente en un
+                referente de los juegos multijugador cooperativos.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

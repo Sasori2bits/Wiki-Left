@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personajes - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES                           */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      /* Menú de Navegación */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      /* Contenedor Principal */
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 1000px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      /* Tipografía */
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #ff4d4d;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      p,
+      ul {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        text-align: justify;
+      }
+
+      /* Galería Flexbox para imágenes */
+      .image-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 25px 0;
+      }
+
+      .image-frame {
+        border: 3px solid #3a4d3e;
+        background-color: #151a16;
+        padding: 12px;
+        border-radius: 6px;
+        flex: 1 1 300px;
+        max-width: 60%;
+        box-shadow:
+          inset 0 0 10px rgba(0, 0, 0, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+        background-color: #0a0c0a;
+      }
+
+      .image-caption {
+        font-size: 0.9rem;
+        color: #8fa893;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* Tablas */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #ffffff;
+        font-family: "Impact", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: PERSONAJES -->
+    <main>
+      <div class="section-content">
+        <h1>Los Supervivientes</h1>
+
+        <p>
+          En el universo de Left 4 Dead 2, los "supervivientes" son un grupo de
+          cuatro individuos que comparten una característica vital: son
+          <strong>portadores asintomáticos</strong> de la Gripe Verde. Esto
+          significa que están infectados con el virus y pueden transmitirlo,
+          pero son completamente inmunes a sus efectos mutagénicos y no se
+          convierten en zombis. Obligados a cooperar tras ser abandonados por
+          las fuerzas de evacuación de la CEDA en Savannah, Georgia, este
+          variopinto grupo debe atravesar el sur de Estados Unidos luchando por
+          sus vidas.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame" style="max-width: 80%">
+            <img
+              src="supervivientesLFD.jpg"
+              alt="Los cuatro supervivientes de Left 4 Dead 2"
+            />
+            <div class="image-caption">
+              De izquierda a derecha: Coach, Ellis, Nick y Rochelle, formando un
+              frente unido contra la horda.
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================== -->
+        <!-- COACH -->
+        <!-- ===================================== -->
+        <h2>Coach</h2>
+        <p>
+          <strong>Historia:</strong> Antes de que la infección arrasara con el
+          país, Coach era un maestro de educación física y coordinador defensivo
+          en una escuela secundaria en Savannah. Su sueño siempre fue ser
+          entrenador de fútbol americano profesional, pero una lesión en la
+          rodilla frustró su carrera en su juventud. De los cuatro, actúa a
+          menudo como la brújula moral, el líder natural y el motivador del
+          equipo. Su optimismo y su gran apetito lo ayudan a mantener la cordura
+          en medio del apocalipsis.
+        </p>
+        <p>
+          <strong>Aspecto Físico:</strong> Es un hombre afroamericano de 44
+          años, de gran estatura y complexión robusta. Viste los colores de su
+          amada escuela: una camisa tipo polo en tonos amarillo y morado,
+          pantalones deportivos oscuros, tenis de gimnasia y un par de guantes
+          sin dedos que le brindan un mejor agarre para las armas.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Coach.jpg" alt="Coach" />
+            <div class="image-caption">
+              Coach: Liderazgo pesado y un amor incondicional por los
+              helicópteros de chocolate.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Coach</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nombre Real</td>
+              <td>
+                Su nombre real nunca se menciona en el juego. Todos, incluso él
+                mismo, se refieren a él estrictamente como "Coach" (Entrenador).
+              </td>
+            </tr>
+            <tr>
+              <td>Franquicia Favorita</td>
+              <td>
+                Es un fanático acérrimo de <em>Burger Tank</em> y a menudo
+                bromea con querer detenerse a comer en medio de las campañas.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- ELLIS -->
+        <!-- ===================================== -->
+        <h2>Ellis</h2>
+        <p>
+          <strong>Historia:</strong> Ellis es un joven e ingenuo mecánico nacido
+          y criado en Savannah. Lejos de estar aterrorizado por el apocalipsis
+          zombi, parece encontrarlo como una aventura emocionante. Es
+          increíblemente parlanchín y tiene la costumbre de interrumpir momentos
+          de tensión absoluta para contar historias largas, absurdas y casi
+          siempre peligrosas sobre su mejor amigo, "Keith". A pesar de su
+          actitud infantil y despreocupada, es extremadamente valiente y leal al
+          grupo.
+        </p>
+        <p>
+          <strong>Aspecto Físico:</strong> Es un chico caucásico de 23 años. Su
+          vestimenta es la de un mecánico de clase trabajadora: lleva una
+          camiseta amarilla con el logo del taller "Bull Shifters", la parte
+          superior de su overol azul amarrada a la cintura y una característica
+          gorra de camionero de color blanco y azul.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Ellis.jpg" alt="Ellis" />
+            <div class="image-caption">
+              Ellis: Siempre listo con una escopeta y una historia sobre su
+              amigo Keith.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Ellis</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>El Ídolo Motorizado</td>
+              <td>
+                Es un gran fanático del legendario piloto de carreras ficticio,
+                Jimmy Gibbs Jr., y se emociona profundamente en la campaña Dead
+                Center al encontrar su auto de exhibición.
+              </td>
+            </tr>
+            <tr>
+              <td>Amor a primera vista</td>
+              <td>
+                En la campaña "The Passing" (Defunción), Ellis se enamora
+                perdidamente de Zoey, la superviviente del primer juego.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- NICK -->
+        <!-- ===================================== -->
+        <h2>Nick</h2>
+        <p>
+          <strong>Historia:</strong> Nick es un estafador, apostador compulsivo
+          y un nómada cínico. Llegó a Savannah buscando casinos ilegales y
+          partidas de póker fáciles, pero se encontró con la Gripe Verde. Al
+          principio, Nick es pesimista, sarcástico y sumamente desconfiado,
+          viendo a los demás supervivientes como una carga. Sin embargo, a
+          medida que avanzan las campañas, su actitud se suaviza, demostrando
+          que en el fondo se preocupa por sus compañeros, aunque intente
+          ocultarlo bajo su áspera personalidad.
+        </p>
+        <p>
+          <strong>Aspecto Físico:</strong> De aproximadamente 35 años, Nick es
+          un hombre caucásico que destaca visualmente por estar completamente
+          fuera de lugar en un apocalipsis: viste un carísimo traje blanco hecho
+          a medida, una camisa de vestir azul marino y zapatos finos. Lleva un
+          par de anillos caros, sugiriendo su trasfondo en el mundo de las
+          apuestas.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Nick.jpg" alt="Nick" />
+            <div class="image-caption">
+              Nick: Las apuestas no lo prepararon para perder contra los muertos
+              vivientes.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Nick</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pasado Misterioso</td>
+              <td>
+                Las líneas de diálogo sugieren fuertemente que Nick tiene
+                vínculos con la mafia o el crimen organizado, e incluso se
+                asusta cuando pasan cerca de una prisión.
+              </td>
+            </tr>
+            <tr>
+              <td>El Traje</td>
+              <td>
+                A medida que avanza cada campaña, el traje inmaculado de Nick se
+                cubre visiblemente de sangre y suciedad, reflejando el progreso
+                del juego.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- ROCHELLE -->
+        <!-- ===================================== -->
+        <h2>Rochelle</h2>
+        <p>
+          <strong>Historia:</strong> Originaria de Cleveland, Rochelle es una
+          productora asociada de bajo nivel para una cadena de noticias por
+          cable. Fue enviada a Savannah para cubrir la respuesta y los centros
+          de evacuación de la CEDA en la ciudad. Durante un reportaje, el caos
+          estalló y se vio obligada a huir. Rochelle actúa como la "hermana
+          mayor" del grupo; es compasiva, inteligente y trata de mantener la
+          moral alta cuando los ánimos de los hombres decaen. Su sentido del
+          humor es a menudo seco pero afectuoso.
+        </p>
+        <p>
+          <strong>Aspecto Físico:</strong> Es una mujer afroamericana de 29
+          años. Viste ropa cómoda y casual: una camiseta de color rosa claro con
+          el logotipo de la icónica banda musical <em>Depeche Mode</em>, unos
+          pantalones de mezclilla desgastados y botas. Lleva pulseras y un aro
+          en la oreja izquierda.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Rochelle.jpg" alt="Rochelle" />
+            <div class="image-caption">
+              Rochelle: La voz de la razón y el corazón del equipo de Savannah.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Rochelle</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Depeche Mode</td>
+              <td>
+                Valve se puso en contacto con la banda británica Depeche Mode, a
+                quienes les encantó el primer juego, y permitieron usar su logo
+                gratuitamente en la camiseta de Rochelle.
+              </td>
+            </tr>
+            <tr>
+              <td>Diálogos Eliminados</td>
+              <td>
+                Debido a limitaciones de tiempo y grabaciones, Rochelle es el
+                personaje que cuenta con menos líneas de diálogo e historias
+                personales respecto al resto del grupo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

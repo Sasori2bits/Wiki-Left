@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetos Arrojadizos - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES                           */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      /* Menú de Navegación */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      /* Contenedor Principal */
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 1000px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      /* Tipografía */
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #ff4d4d;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      p,
+      ul {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        text-align: justify;
+      }
+
+      /* Galería Flexbox para imágenes y videos */
+      .image-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 25px 0;
+      }
+
+      .image-frame {
+        border: 3px solid #3a4d3e;
+        background-color: #151a16;
+        padding: 12px;
+        border-radius: 6px;
+        flex: 1 1 300px;
+        max-width: 60%;
+        box-shadow:
+          inset 0 0 10px rgba(0, 0, 0, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* Se agregó la etiqueta video para el mismo formato que la imagen */
+      .image-frame img,
+      .image-frame video {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 4px;
+        display: block;
+        margin: auto;
+        background-color: #0a0c0a;
+      }
+
+      .image-caption {
+        font-size: 0.9rem;
+        color: #8fa893;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* Tablas */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #ffffff;
+        font-family: "Impact", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: OBJETOS ARROJADIZOS -->
+    <main>
+      <div class="section-content">
+        <h1>Objetos Arrojadizos</h1>
+
+        <p>
+          Los objetos arrojadizos son herramientas tácticas de un solo uso que
+          ocupan la tercera ranura del inventario. Son esenciales para la
+          supervivencia, ya que permiten a los jugadores controlar multitudes
+          masivas, bloquear el paso de los enemigos mediante áreas de negación,
+          o proporcionar valiosos segundos de distracción para rescatar a un
+          compañero caído. Los supervivientes solo pueden llevar un objeto
+          arrojadizo a la vez, por lo que elegir el adecuado según la situación
+          es clave.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame" style="max-width: 80%">
+            <img
+              src="arrojadizos.jpg"
+              alt="Los tres objetos arrojadizos principales de Left 4 Dead 2"
+            />
+            <div class="image-caption">
+              Bomba Casera, Cóctel Molotov y Frasco de Bilis: el arsenal táctico
+              definitivo.
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================== -->
+        <!-- BOMBA CASERA (PIPE BOMB) -->
+        <!-- ===================================== -->
+        <h2>Bomba Casera (Pipe Bomb)</h2>
+        <p>
+          <strong>Descripción y Función:</strong> Un tubo de metal relleno de
+          pólvora negra con un temporizador y un parpadeante diodo rojo
+          acoplado. Al lanzarla, la bomba emite un sonido rítmico de alta
+          frecuencia. Los zombis comunes se sienten instintivamente atraídos por
+          la luz y el ruido, abandonando cualquier ataque para agruparse
+          alrededor del objeto. Tras unos breves segundos, la bomba detona,
+          volando en pedazos a todos los infectados en un amplio radio.
+        </p>
+        <p>
+          <strong>Efectos Tácticos:</strong> Es ideal para despejar el camino
+          durante eventos de clímax o cuando un compañero está rodeado. Sin
+          embargo, no tiene ningún efecto de atracción sobre los Infectados
+          Especiales ni el Tank.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Lanzable - bomba cacera.jpg" alt="Bomba Casera" />
+            <div class="image-caption">
+              Bomba Casera: Atrae a la horda y la elimina en una explosión
+              devastadora.
+            </div>
+          </div>
+          <!-- Video de la Bomba Casera a la par -->
+          <div class="image-frame">
+            <video src="pipebom.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Uso táctico de la Bomba Casera.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Bomba Casera</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Interacción con el Entorno</td>
+              <td>
+                La explosión es lo suficientemente fuerte como para activar
+                alarmas de coches cercanos si detona cerca de ellos.
+              </td>
+            </tr>
+            <tr>
+              <td>Límites de Atracción</td>
+              <td>
+                Los zombis perderán el interés en la bomba si un superviviente
+                los rocía con un Frasco de Bilis al mismo tiempo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- CÓCTEL MOLOTOV -->
+        <!-- ===================================== -->
+        <h2>Cóctel Molotov</h2>
+        <p>
+          <strong>Descripción y Función:</strong> Una simple botella de vidrio
+          rellena de líquido altamente inflamable con un trapo encendido en el
+          cuello. Se rompe inmediatamente al impactar contra cualquier
+          superficie (incluso en el aire si choca con un infectado), creando una
+          extensa alfombra de fuego. Cualquier infectado común que toque las
+          llamas morirá incinerado instantáneamente.
+        </p>
+        <p>
+          <strong>Efectos Tácticos:</strong> Su función principal es la
+          "negación de área", bloqueando pasillos, escaleras o puertas para
+          evitar el avance de la horda. Es el arma más letal contra el Tank, ya
+          que al prenderle fuego su salud comienza a drenarse de manera
+          constante y, en las campañas, reduce ligeramente su velocidad de
+          movimiento.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Lanzable - Molotov.jpg" alt="Cóctel Molotov" />
+            <div class="image-caption">
+              Cóctel Molotov: Un muro de fuego protector y la mayor debilidad
+              del Tank.
+            </div>
+          </div>
+          <!-- Video del Cóctel Molotov a la par -->
+          <div class="image-frame">
+            <video src="molotov.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Uso táctico del Cóctel Molotov.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Cóctel Molotov</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Daño Amigo</td>
+              <td>
+                Es el objeto que más daño accidental causa. Atravesar las llamas
+                propias o de un compañero drena la salud drásticamente.
+              </td>
+            </tr>
+            <tr>
+              <td>Witches en Llamas</td>
+              <td>
+                Lanzarle un Molotov a una Witch la encenderá y la alterará al
+                instante, haciéndola correr erráticamente, pero no reduce su
+                capacidad de daño.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- FRASCO DE BILIS (BILE BOMB) -->
+        <!-- ===================================== -->
+        <h2>Frasco de Bilis (Bile Jar)</h2>
+        <p>
+          <strong>Descripción y Función:</strong> Un frasco de recolección de
+          muestras de la CEDA (Agencia de Control de Emergencias y Defensa)
+          lleno de vómito extraído de un Boomer. Al romperse, salpica la
+          feromona mutada por toda el área de impacto. Esto confunde a los
+          infectados comunes, induciéndolos a un frenesí agresivo que los lleva
+          a atacar el punto exacto de impacto e incluso a atacarse entre ellos
+          si están manchados.
+        </p>
+        <p>
+          <strong>Efectos Tácticos:</strong> Es excelente para lanzarlo al vacío
+          o lejos del equipo para desviar grandes hordas y escapar corriendo. Si
+          se lanza directamente contra un Infectado Especial o el Tank, toda la
+          horda común centrará sus ataques en esa criatura, causando un gran
+          daño de apoyo.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Lanzable - bilis.jpg" alt="Frasco de Bilis" />
+            <div class="image-caption">
+              Frasco de Bilis: Vuelve el arma del Boomer en contra de la propia
+              horda.
+            </div>
+          </div>
+          <!-- Video del Frasco de Bilis a la par -->
+          <div class="image-frame">
+            <video src="bile.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Uso táctico del Frasco de Bilis.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Frasco de Bilis</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>El Efecto Contraproducente</td>
+              <td>
+                Lanzarlo invoca zombis adicionales al mapa. Nunca debe usarse
+                durante "eventos de pánico" infinitos donde la prioridad es solo
+                correr al refugio.
+              </td>
+            </tr>
+            <tr>
+              <td>Combo Letal</td>
+              <td>
+                Lanzar un Frasco de Bilis a una zona y posteriormente un Molotov
+                en el mismo lugar garantiza incinerar a decenas de infectados
+                simultáneamente.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

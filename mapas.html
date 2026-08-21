@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapas y Campañas - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES                           */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      /* Menú de Navegación */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      /* Contenedor Principal */
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 900px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      /* Tipografía */
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #ff4d4d;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        text-align: justify;
+      }
+
+      /* Encuadre de Imágenes */
+      .image-frame {
+        border: 3px solid #3a4d3e;
+        background-color: #151a16;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 20px auto;
+        max-width: 70%;
+        box-shadow:
+          inset 0 0 10px rgba(0, 0, 0, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.6);
+        text-align: center;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .image-caption {
+        font-size: 0.9rem;
+        color: #8fa893;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* Tablas */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #ffffff;
+        font-family: "Impact", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: MAPAS Y CAMPAÑAS -->
+    <main>
+      <div class="section-content">
+        <h1>Las Campañas</h1>
+        <p>
+          La historia de Left 4 Dead 2 sigue a nuestros cuatro supervivientes a
+          lo largo de un peligroso viaje por el sur de los Estados Unidos.
+          Tratando de escapar de la rápida expansión de la Gripe Verde, el grupo
+          debe atravesar ciudades en llamas, pantanos traicioneros y huracanes
+          masivos para encontrar un lugar seguro administrado por los militares.
+        </p>
+
+        <!-- CAMPAÑA 1: DEAD CENTER -->
+        <h2>1. Dead Center (Punto Muerto)</h2>
+        <p>
+          La historia comienza en la ciudad de Savannah, Georgia. Los
+          supervivientes llegan tarde al tejado del hotel "The Vannah" justo
+          cuando el último helicóptero de evacuación de la CEDA se aleja. Sin
+          otra opción, el grupo debe descender por el hotel en llamas, cruzar
+          las calles infestadas y pedir ayuda al excéntrico dueño de una armería
+          llamado Whitaker. Su objetivo final es llegar al Centro Comercial
+          Liberty para robar el famoso auto de carreras de Jimmy Gibbs Jr. y
+          escapar de la ciudad pisando el acelerador a fondo.
+        </p>
+
+        <div class="image-frame">
+          <img src="dead-center.jpg" alt="Póster Dead Center" />
+          <div class="image-caption">
+            Dead Center: La huida del hotel en llamas hacia el centro comercial.
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Dead Center</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>El Coche de Jimmy Gibbs Jr.</td>
+              <td>
+                Tiene un 5% de probabilidad de generar un "Zombi Jimmy Gibbs
+                Jr." especial en el evento final.
+              </td>
+            </tr>
+            <tr>
+              <td>Infectados de la CEDA</td>
+              <td>
+                Es la única campaña donde los zombis llevan trajes anti-riesgos,
+                siendo inmunes al fuego de los Molotov.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAMPAÑA 2: DARK CARNIVAL -->
+        <h2>2. Dark Carnival (Feria Siniestra)</h2>
+        <p>
+          Tras escapar de Savannah, la carretera se encuentra completamente
+          bloqueada por kilómetros de autos abandonados. Obligados a abandonar
+          el auto de Jimmy Gibbs, los supervivientes continúan a pie hasta
+          llegar al parque de atracciones "Whispering Oaks". La campaña los
+          obliga a encender diversas atracciones ruidosas (como una montaña rusa
+          y un carrusel) para avanzar, atrayendo inmensas hordas. El épico
+          clímax se desarrolla en el escenario de la banda de rock "Midnight
+          Riders", donde usan las luces y pirotecnia del concierto para pedir
+          rescate a un helicóptero.
+        </p>
+
+        <div class="image-frame">
+          <img src="fondo-intro.jpg" alt="Póster Dark Carnival" />
+          <div class="image-caption">
+            Dark Carnival: Sobreviviendo entre atracciones abandonadas y
+            conciertos de rock.
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Dark Carnival</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gnomo Chompski</td>
+              <td>
+                En el minijuego de tiro al blanco puedes ganar a este gnomo.
+                Llevarlo hasta el final otorga un logro especial.
+              </td>
+            </tr>
+            <tr>
+              <td>Concierto Épico</td>
+              <td>
+                La música que suena en el evento final ("Midnight Ride" y "One
+                Bad Man") fue compuesta específicamente para el juego.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAMPAÑA 3: SWAMP FEVER -->
+        <h2>3. Swamp Fever (Pantanos)</h2>
+        <p>
+          El piloto que los rescató en la feria resulta estar infectado. Tras un
+          disparo defensivo, el helicóptero se estrella en los sombríos pantanos
+          de Luisiana. Perdidos en zonas anegadas de agua que ralentizan sus
+          movimientos, descubren aldeas rústicas arrasadas por el virus y un
+          avión de pasajeros estrellado. Finalmente, logran refugiarse en una
+          gigantesca mansión de plantación en ruinas, donde resisten el ataque
+          final hasta ser rescatados por Virgil, un amable civil originario de
+          Cajún que viaja en su barco de vapor.
+        </p>
+
+        <div class="image-frame">
+          <img src="fondo-objetos.jpg" alt="Póster Swamp Fever" />
+          <div class="image-caption">
+            Swamp Fever: Terreno fangoso, aviones estrellados y aldeas
+            destrozadas.
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Swamp Fever</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hombres de Barro</td>
+              <td>
+                El zombi poco común de esta campaña camina a cuatro patas y
+                ciega a los jugadores con lodo si los golpea.
+              </td>
+            </tr>
+            <tr>
+              <td>Atmósfera</td>
+              <td>
+                El agua reduce drásticamente la velocidad de movimiento,
+                haciendo que los ataques del Infectado "Charger" sean
+                devastadores.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAMPAÑA 4: HARD RAIN -->
+        <h2>4. Hard Rain (El Diluvio)</h2>
+        <p>
+          El barco de Virgil se está quedando sin combustible para llegar a
+          Nueva Orleans. Deja a los supervivientes en el pequeño pueblo
+          industrial de Ducatel, Misisipi, con la misión de buscar diésel en una
+          gasolinera distante. Esta campaña es única porque se divide en dos
+          fases: un viaje de ida atravesando un ingenio azucarero abandonado, y
+          un peligroso viaje de regreso por el mismo camino. Sin embargo, en el
+          trayecto de vuelta, un violento huracán inunda todo el pueblo,
+          reduciendo la visibilidad a escasos metros y ralentizando
+          drásticamente al grupo mientras cargan los pesados bidones de
+          gasolina.
+        </p>
+
+        <div class="image-frame">
+          <img src="fondo-infectados.jpg" alt="Póster Hard Rain" />
+          <div class="image-caption">
+            Hard Rain: Navegando en medio de un huracán devastador.
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Hard Rain</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clima Dinámico</td>
+              <td>
+                Las fuertes tormentas ocurren de manera intermitente. Cuando
+                llueve fuerte, es casi imposible escuchar acercarse a los
+                Infectados Especiales.
+              </td>
+            </tr>
+            <tr>
+              <td>Witches Inquietas</td>
+              <td>
+                El ingenio azucarero está infestado de múltiples Witches
+                errantes que se sienten atraídas por el olor a azúcar, haciendo
+                que avanzar sea un reto de sigilo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAMPAÑA 5: THE PARISH -->
+        <h2>5. The Parish (La Parroquia)</h2>
+        <p>
+          Virgil finalmente los deja en los muelles de Nueva Orleans. La ciudad
+          ha sido tomada por el ejército, que está evacuando a los no infectados
+          y ejecutando civiles que puedan portar el virus. Los supervivientes
+          descubren que, aunque son inmunes, son "portadores asintomáticos", por
+          lo que los militares podrían dispararles. Abriéndose paso por el
+          Barrio Francés bajo la luz del sol, llegan al gran puente conector de
+          la ciudad. El épico y agotador final consiste en cruzar este
+          gigantesco puente lleno de autos destruidos e infectados, todo esto
+          mientras aviones militares bombardean la estructura para intentar
+          frenar a los zombis. Al llegar al otro lado, un helicóptero militar
+          los evacúa hacia un futuro incierto.
+        </p>
+
+        <div class="image-frame">
+          <img src="fondo-personajes.jpg" alt="Póster The Parish" />
+          <div class="image-caption">
+            The Parish: La carrera final cruzando el puente de Nueva Orleans.
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: The Parish</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Final en Movimiento</td>
+              <td>
+                A diferencia de otras campañas donde el equipo defiende un punto
+                estático, en The Parish el evento final exige avanzar
+                constantemente por el puente sin mirar atrás.
+              </td>
+            </tr>
+            <tr>
+              <td>Infectado Antidisturbios</td>
+              <td>
+                Aparecen policías zombificados con armadura frontal completa.
+                Solo se les puede matar disparándoles por la espalda.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

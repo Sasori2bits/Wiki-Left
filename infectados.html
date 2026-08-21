@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infectados Especiales - L4D2 Wiki</title>
+    <style>
+      /* ========================================== */
+      /* ESTILOS GLOBALES                           */
+      /* ========================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          linear-gradient(rgba(10, 14, 11, 0.9), rgba(10, 14, 11, 0.92)),
+          url("Fondo general.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #d1d8d2;
+        line-height: 1.6;
+      }
+
+      /* Menú de Navegación */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 11, 0.96);
+        border-bottom: 3px solid #8b0000;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      nav a {
+        color: #a3b899;
+        text-decoration: none;
+        margin: 5px 12px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.activo {
+        color: #ff3333;
+        text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+      }
+
+      /* Contenedor Principal */
+      main {
+        padding: 110px 20px 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-content {
+        background-color: rgba(18, 22, 19, 0.92);
+        border: 2px solid #2e3d32;
+        border-left: 6px solid #8b0000;
+        max-width: 1000px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        margin-bottom: 40px;
+      }
+
+      /* Tipografía */
+      h1,
+      h2,
+      h3 {
+        font-family: "Impact", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #ff4d4d;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e0e0e0;
+        border-bottom: 2px solid #2e3d32;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      p,
+      ul {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        text-align: justify;
+      }
+
+      /* Galería Flexbox para imágenes y videos */
+      .image-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 25px 0;
+      }
+
+      .image-frame {
+        border: 3px solid #3a4d3e;
+        background-color: #151a16;
+        padding: 12px;
+        border-radius: 6px;
+        flex: 1 1 300px;
+        max-width: 60%;
+        box-shadow:
+          inset 0 0 10px rgba(0, 0, 0, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* Se agregó la etiqueta video para que tenga exactamente el mismo formato que la imagen */
+      .image-frame img,
+      .image-frame video {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 4px;
+        display: block;
+        margin: auto;
+        background-color: #0a0c0a;
+      }
+
+      .image-caption {
+        font-size: 0.9rem;
+        color: #8fa893;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* Tablas */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #141915;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #2e3d32;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #2e3d32;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #1f2921;
+        color: #ffffff;
+        font-family: "Impact", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="index.html" class="activo">Introducción</a>
+      <a href="mapas.html">Mapas</a>
+      <a href="armas.html">Armas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="infectados.html">Infectados Especiales</a>
+      <a href="objetos.html">Objetos Arrojadizos</a>
+      <a href="encuesta.html">Encuesta</a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: INFECTADOS ESPECIALES -->
+    <main>
+      <div class="section-content">
+        <h1>Infectados Especiales</h1>
+
+        <p>
+          Los Infectados Especiales son la principal amenaza táctica orquestada
+          por el <em>AI Director</em>. A diferencia de los zombis comunes, estas
+          criaturas han sufrido mutaciones extremas debido a la Gripe Verde,
+          desarrollando habilidades letales diseñadas específicamente para
+          separar, incapacitar o aniquilar a los supervivientes. Trabajar en
+          equipo es la única manera de sobrevivir a sus ataques combinados.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame" style="max-width: 80%">
+            <img
+              src="Presentacion - zombis.jpg"
+              alt="Presentación de los Infectados Especiales"
+            />
+            <div class="image-caption">
+              Las mutaciones de la Gripe Verde han creado pesadillas biológicas
+              altamente especializadas.
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================== -->
+        <!-- BOOMER -->
+        <!-- ===================================== -->
+        <h2>Boomer</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> Se cree que los Boomers eran personas
+          con obesidad mórbida antes de la infección. El virus mutó
+          drásticamente su tracto digestivo, obligando a sus cuerpos a producir
+          cantidades masivas de bilis altamente volátil. Su piel está estirada
+          al máximo y llena de pústulas purulentas a punto de reventar.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> El Boomer es un infectado de apoyo. Su
+          ataque principal consiste en vomitar bilis sobre los supervivientes,
+          lo cual los ciega temporalmente y atrae instantáneamente a una horda
+          de zombis comunes hacia los afectados. Además, tiene muy poca salud;
+          al morir, explota cubriendo de bilis a cualquiera que esté demasiado
+          cerca.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Boomeridle_1.jpg" alt="El Boomer" />
+            <div class="image-caption">
+              El Boomer: Lento, ruidoso, pero capaz de desatar el caos en un
+              segundo.
+            </div>
+          </div>
+          <!-- Video del Boomer a la par -->
+          <div class="image-frame">
+            <video src="boomer.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque del Boomer.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Boomer</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sonido Delator</td>
+              <td>
+                Se le puede escuchar desde lejos debido a sus constantes eructos
+                y quejidos burbujeantes.
+              </td>
+            </tr>
+            <tr>
+              <td>Empujón Vital</td>
+              <td>
+                Es fundamental empujarlo (golpe melee) antes de dispararle para
+                evitar que su explosión te manche.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- HUNTER -->
+        <!-- ===================================== -->
+        <h2>Hunter</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> La teoría más aceptada es que los
+          Hunters eran practicantes de parkour, acróbatas o atletas. La Gripe
+          Verde fortaleció de forma antinatural los músculos de sus piernas,
+          permitiéndoles dar saltos inhumanos. Para ocultarse, visten sudaderas
+          oscuras con capucha y se desplazan a cuatro patas como depredadores
+          salvajes.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> Es un atacante ágil que se abalanza desde
+          grandes distancias. Cuando atrapa a un superviviente, lo inmoviliza
+          contra el suelo y comienza a desgarrarle el abdomen, causando daño
+          continuo. La víctima queda totalmente indefensa hasta que un compañero
+          mate al Hunter o lo empuje.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Hunter.jpg" alt="El Hunter" />
+            <div class="image-caption">
+              Hunter: Un depredador ágil que castiga a los jugadores que se
+              separan del grupo.
+            </div>
+          </div>
+          <!-- Video del Hunter a la par -->
+          <div class="image-frame">
+            <video src="hunter.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque del Hunter.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Hunter</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Daño por Caída (Pounce)</td>
+              <td>
+                Si un jugador (en modo Versus) salta desde un lugar muy alto y
+                acierta a un superviviente, puede hacer hasta 25 puntos de daño
+                extra solo por el impacto.
+              </td>
+            </tr>
+            <tr>
+              <td>Silencioso al acecho</td>
+              <td>
+                A diferencia del resto, el Hunter no hace ruidos fuertes al
+                caminar, solo emite gruñidos agudos cuando se prepara para
+                saltar.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- SMOKER -->
+        <!-- ===================================== -->
+        <h2>Smoker</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> Fiel a su nombre, se especula que los
+          Smokers eran fumadores empedernidos o personas con cáncer de pulmón.
+          El virus reaccionó violentamente en sus vías respiratorias,
+          desarrollando múltiples tumores y una lengua kilométrica similar a un
+          tentáculo. Su constante tos delata el dolor de sus pulmones
+          destrozados.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> Actúa como un francotirador. Dispara su
+          larga lengua desde tejados o ventanas para atrapar a un superviviente,
+          arrastrándolo hacia él para asfixiarlo o inmovilizarlo, dejándolo a
+          merced de la horda. Al morir, libera una densa nube de humo tóxico que
+          nubla la visión de los jugadores y hace toser a los personajes.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Smoker_2.jpg" alt="El Smoker" />
+            <div class="image-caption">
+              Smoker: Especialista en arrancar supervivientes de las zonas
+              seguras.
+            </div>
+          </div>
+          <!-- Video del Smoker a la par -->
+          <div class="image-frame">
+            <video src="smoker.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque del Smoker.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Smoker</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Corte Rápido</td>
+              <td>
+                Si portas un arma cuerpo a cuerpo afilada, tienes un margen de
+                medio segundo para cortar la lengua del Smoker justo cuando te
+                atrapa.
+              </td>
+            </tr>
+            <tr>
+              <td>Efectos Particulares</td>
+              <td>
+                Es el único infectado cuyo cuerpo continúa teniendo espasmos y
+                moviéndose de forma perturbadora varios segundos después de
+                muerto.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- JOCKEY -->
+        <!-- ===================================== -->
+        <h2>Jockey</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> La comunidad teoriza que los Jockeys
+          padecían de cifosis (joroba), esquizofrenia o condiciones neurológicas
+          severas. El virus atacó directamente su sistema nervioso,
+          convirtiéndolos en criaturas hiperactivas y maníacas que ríen
+          histéricamente mientras corren encorvados.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> Su objetivo es saltar sobre la cabeza de
+          un superviviente y "montarlo". Una vez arriba, el Jockey puede desviar
+          el movimiento de la víctima, arrastrándola hacia peligros ambientales
+          como fuego, ácido de Spitter, Witches o precipicios. Mientras lo
+          controla, la víctima sufre daño constante.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Jockey.jpg" alt="El Jockey" />
+            <div class="image-caption">
+              Jockey: Risa histérica y secuestro exprés hacia el peligro
+              inminente.
+            </div>
+          </div>
+          <!-- Video del Jockey a la par -->
+          <div class="image-frame">
+            <video src="jockey.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque del Jockey.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Jockey</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hitbox Complicada</td>
+              <td>
+                Debido a su postura encorvada y sus saltos erráticos, es
+                considerado uno de los infectados más difíciles de acertarle un
+                tiro en la cabeza.
+              </td>
+            </tr>
+            <tr>
+              <td>Lucha de Voluntades</td>
+              <td>
+                El jugador atrapado por el Jockey puede resistirse moviendo el
+                ratón o joystick en dirección contraria para ralentizar el
+                secuestro.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- CHARGER -->
+        <!-- ===================================== -->
+        <h2>Charger</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> La disparidad de sus brazos (uno
+          gigantesco y otro atrófico) ha generado la teoría jocosa en la
+          comunidad de que era alguien que practicaba el autoerotismo en exceso.
+          Sin embargo, la teoría seria indica que era un granjero, herrero o
+          trabajador manual asimétrico cuyo brazo dominante fue hipertrofiado
+          monstruosamente por la Gripe Verde.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> Su función principal es romper
+          formaciones. El Charger embiste en línea recta a gran velocidad,
+          derribando como bolos a cualquiera que se cruce en su camino. Atrapa a
+          un superviviente en el impacto inicial, llevándoselo por delante hasta
+          chocar contra una pared para luego azotarlo brutalmente contra el
+          suelo de manera repetida.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Charger_I.jpg" alt="El Charger" />
+            <div class="image-caption">
+              Charger: Una mole imparable diseñada para destruir el trabajo en
+              equipo en espacios cerrados.
+            </div>
+          </div>
+          <!-- Video del Charger a la par -->
+          <div class="image-frame">
+            <video src="charger.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque del Charger.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Charger</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inmunidad al Empuje</td>
+              <td>
+                A diferencia del Hunter o Jockey, el Charger no puede ser
+                empujado con el botón de melee bajo ninguna circunstancia.
+              </td>
+            </tr>
+            <tr>
+              <td>Daño de Impacto (Instakill)</td>
+              <td>
+                Si un Charger embiste a un jugador hacia una zona fuera del mapa
+                (como una ventana alta o el mar), la muerte es instantánea.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- SPITTER -->
+        <!-- ===================================== -->
+        <h2>Spitter</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> Visualmente, su estómago distendido
+          sugiere que la víctima estaba embarazada cuando se infectó, o bien
+          sufría de úlceras y reflujo gástrico extremo. El virus disolvió sus
+          órganos internos, convirtiendo su estómago en una bio-fábrica de ácido
+          corrosivo que constantemente babea y le quema las mandíbulas.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> La Spitter escupe una bola de ácido
+          estomacal a larga distancia. Al impactar, el ácido se esparce en un
+          gran charco verde. Cualquier superviviente que pise el charco sufrirá
+          daño masivo que incrementa cada segundo. Es ideal para obligar a los
+          jugadores a salir de las esquinas seguras. Al morir, deja un charco de
+          ácido más pequeño a sus pies.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Spitter_2.jpg" alt="La Spitter" />
+            <div class="image-caption">
+              Spitter: Control de área letal que te obligará a moverte
+              constantemente.
+            </div>
+          </div>
+          <!-- Video de la Spitter a la par -->
+          <div class="image-frame">
+            <video src="spitter.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque de la Spitter.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Spitter</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sinergia Destructiva</td>
+              <td>
+                El combo más mortífero en modo Versus es el de un Smoker, Hunter
+                o Charger inmovilizando a alguien justo dentro del ácido de una
+                Spitter.
+              </td>
+            </tr>
+            <tr>
+              <td>Destrucción de Recursos</td>
+              <td>
+                Su ácido tiene la capacidad de prender y destruir galones de
+                gasolina que estén abandonados en el suelo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- TANK -->
+        <!-- ===================================== -->
+        <h2>Tank</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> Los Tanks eran fisicoculturistas,
+          deportistas de élite o usuarios de esteroides que tenían gran masa
+          muscular. La Gripe Verde reaccionó a estas sustancias mutando el
+          cuerpo hasta dimensiones titánicas, rompiendo la piel del sujeto y
+          llenándolo de una rabia incontrolable. Es la máxima expresión de
+          fuerza de la infección.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> El Tank es el "jefe" del juego. Posee una
+          cantidad de vida absurda y su ataque principal es un puñetazo que
+          manda a volar a los supervivientes, incapacitándolos rápidamente.
+          También puede arrancar trozos de escombros de la tierra para lanzarlos
+          a largas distancias, y tiene la capacidad de golpear objetos pesados
+          (autos, contenedores) para aplastar a los jugadores.
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Tankidle.jpg" alt="El Tank" />
+            <div class="image-caption">
+              Tank: La fuerza bruta encarnada. Su aparición altera el ritmo de
+              la partida.
+            </div>
+          </div>
+          <!-- Video del Tank a la par -->
+          <div class="image-frame">
+            <video src="tank.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque del Tank.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Tank</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Música Temática</td>
+              <td>
+                Tiene su propio tema musical ("Taank" o "Midnight Tank") que
+                suena advirtiendo a los jugadores segundos antes de que aparezca
+                en pantalla.
+              </td>
+            </tr>
+            <tr>
+              <td>Debilidad al Fuego</td>
+              <td>
+                Su mayor debilidad es el fuego (molotovs); al quemarse, su
+                velocidad disminuye ligeramente y pierde salud gradualmente
+                hasta morir.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================================== -->
+        <!-- WITCH -->
+        <!-- ===================================== -->
+        <h2>Witch</h2>
+        <p>
+          <strong>Lore y Teorías:</strong> Las Witches suelen ser mujeres
+          jóvenes que sufrieron de depresión profunda, anorexia o desórdenes
+          alimenticios. La mutación no altera tanto su físico, pero
+          hiper-sensibiliza su sistema nervioso. La luz brillante y los ruidos
+          fuertes le causan un dolor insoportable, de ahí que se la pase
+          llorando desconsoladamente en rincones oscuros.
+        </p>
+        <p>
+          <strong>Mecánicas:</strong> La Witch es un infectado neutral que no
+          ataca a menos que sea provocada. Se le altera apuntándole con
+          linternas, acercándose demasiado o disparándole. Una vez alterada,
+          perseguirá implacablemente al jugador que la asustó. Su ataque derriba
+          automáticamente (o mata de un solo golpe en la dificultad Experto).
+        </p>
+
+        <div class="image-gallery">
+          <div class="image-frame">
+            <img src="Witch_2.PNG.jpg" alt="La Witch" />
+            <div class="image-caption">
+              Witch: Un peligro que es mejor rodear en silencio con las
+              linternas apagadas.
+            </div>
+          </div>
+          <!-- Video de la Witch a la par -->
+          <div class="image-frame">
+            <video src="wicht.mp4" autoplay loop muted playsinline></video>
+            <div class="image-caption">
+              Demostración: Mecánica y ataque de la Witch.
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Curiosidades: Witch</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Witches Errantes</td>
+              <td>
+                En las campañas ambientadas de día, las Witches no están
+                sentadas, sino que deambulan sollozando, haciéndolas más
+                difíciles de esquivar.
+              </td>
+            </tr>
+            <tr>
+              <td>"Crowning" (Coronación)</td>
+              <td>
+                Es posible matarla de un solo disparo de escopeta en la cabeza o
+                el pecho, una técnica arriesgada conocida por la comunidad como
+                "Coronar a la Witch".
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
